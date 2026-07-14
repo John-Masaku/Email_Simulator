@@ -1,8 +1,5 @@
-import datetime
-
 # Core Email and User classes
-
-
+import datetime
 # Represents a single email exchanged between users.
 class Email:
     # Creates a new email with sender, receiver, subject and body.
