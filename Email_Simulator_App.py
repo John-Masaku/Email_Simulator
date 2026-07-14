@@ -1,6 +1,5 @@
-# Core Email and User classes
 import datetime
-# Represents a single email exchanged between users.
+#Core Email and User classes for the Email Simulator application.
 class Email:
     # Creates a new email with sender, receiver, subject and body.
     def __init__(self, sender, receiver, subject, body):
