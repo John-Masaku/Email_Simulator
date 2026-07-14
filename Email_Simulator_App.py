@@ -1,9 +1,7 @@
 import datetime
 
-# ==========================
-# MILESTONE 1
 # Core Email and User classes
-# ==========================
+
 
 # Represents a single email exchanged between users.
 class Email:
