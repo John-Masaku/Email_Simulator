@@ -16,7 +16,7 @@ A simple object-oriented email simulation built in Python.
 ## Project Structure
 
 ```
-email_system.py
+Email_Simulator_App.py
 ```
 
 ## Classes

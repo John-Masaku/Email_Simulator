@@ -30,9 +30,7 @@ class Email:
         status = 'Read' if self.read else 'Unread'
         return f"[{status}] From: {self.sender.name} | Subject: {self.subject} | Time: {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
     
-# Inbox Management
-
-# Stores and manages emails received by a user.
+# Inbox Management  # Stores and manages emails received by a user.
 class Inbox:
     # Creates an empty inbox.
     def __init__(self):
@@ -81,4 +79,60 @@ class Inbox:
         del self.emails[actual_index]
         print('Email deleted.\n')
 
-        
+## User interaction # Represents a user who can send and receive emails.
+class User:
+    # Creates a user with a personal inbox.
+    def __init__(self, name):
+        self.name = name
+        self.inbox = Inbox()
+
+    # Creates and sends an email to another user.
+    def send_email(self, receiver: "User", subject: str, body: str):
+        email = Email(
+            sender=self,
+            receiver=receiver,
+            subject=subject,
+            body=body
+        )
+        receiver.inbox.receive_email(email)
+
+        print(f'Email sent from {self.name} to {receiver.name}!\n')
+
+    # Displays the user's inbox.
+    def check_inbox(self):
+        print(f"\n{self.name}'s Inbox:")
+        self.inbox.list_emails()
+
+    # Reads an email from the inbox.
+    def read_email(self, index):
+        self.inbox.read_email(index)
+
+    # Deletes an email from the inbox.
+    def delete_email(self, index):
+        self.inbox.delete_email(index)
+
+# ##Program Demonstration & Main Function
+def main():
+    # Create users.
+    tory = User('Tory')
+    ramy = User('Ramy')
+
+    # Send sample emails.
+    tory.send_email(ramy, 'Hello', 'Hi Ramy, just saying hello!')
+    ramy.send_email(tory, 'Re: Hello', 'Hi Tory, hope you are fine.')
+
+    # View inbox.
+    ramy.check_inbox()
+
+    # Read first email.
+    ramy.read_email(1)
+
+    # Delete first email.
+    ramy.delete_email(1)
+
+    # Confirm inbox contents.
+    ramy.check_inbox()
+
+# Program entry point.
+if __name__ == '__main__':
+    main()
