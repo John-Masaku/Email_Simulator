@@ -116,10 +116,12 @@ def main():
     # Create users.
     tory = User('Tory')
     ramy = User('Ramy')
+    john = User('John')
 
     # Send sample emails.
     tory.send_email(ramy, 'Hello', 'Hi Ramy, just saying hello!')
     ramy.send_email(tory, 'Re: Hello', 'Hi Tory, hope you are fine.')
+    john.send_email(ramy, 'Hey', 'Just saying hi')
 
     # View inbox.
     ramy.check_inbox()
